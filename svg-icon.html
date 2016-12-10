@@ -15,7 +15,7 @@
      * @param {string} opts.color The color to fill.
      * @param {string} opts.stroke The stroke color.
      */
-    constructor(opts={width: 40, height: 40, color: '#FFF', stroke: 'none'}) {
+    constructor(opts={width: 24, height: 24, color: '#FFF', stroke: 'none'}) {
       super();
       this.root = this.attachShadow({mode: 'open'});
       this.root.innerHTML = `
@@ -23,10 +23,24 @@
         :host {
           width: ${opts.width}px;
           height: ${opts.height}px;
+          display: inline-flex;
+          display: -ms-inline-flexbox;
+          display: -webkit-inline-flex;
+          display: inline-flex;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          position: relative;
+          vertical-align: middle;
           fill: var(--svg-icon-color, ${opts.color});
           stroke: var(--svg-icon-stroke, ${opts.stroke});
         }
       </style>`;
+      this._onIconsetAdded = this._onIconsetAdded.bind(this);
+      window.addEventListener('svg-iconset-added', this._onIconsetAdded);
     }
     /**
      * Iconset
@@ -53,14 +67,14 @@
      * ```
      */
     set icon(value) {
-      if (value) {
+      if (value && this.iconset) {
         let parts = value.split('::');
         if (parts.length === 1) {
           this.iconset['icons'].host.applyIcon(this, value);
         } else {
           this.iconset[parts[0]].host.applyIcon(this, parts[1]);
         }
-      } else {
+      } else if(!value && this.iconset) {
         let parts = this._icon.split('::');
         if (parts.length === 1) {
           this.iconset['icons'].host.removeIcon(this);
@@ -69,6 +83,14 @@
         }
       }
       this._icon = value;
+    }
+    /**
+     * Applies the icon after iconset is added
+     */
+    _onIconsetAdded() {
+      if (this.hasAttribute('icon')) {
+        this.icon = this.getAttribute('icon');
+      }
     }
     /**
      * Runs when attribute changes.
