@@ -1,0 +1,25 @@
+{
+  "name": "svg-icon",
+  "description": "Icon element to use with svg-iconset",
+  "main": "svg-icon.html",
+  "authors": [
+    "Glenn Vandeuren <vandeurenglenn@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "svg",
+    "icon;",
+    "svg-icon"
+  ],
+  "homepage": "https://github.com/vandeurenglenn/svg-icon#readme",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "custom-elements": "webcomponents/custom-elements#^1.0.0-alpha.3"
+  }
+}
