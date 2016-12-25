@@ -21,8 +21,8 @@
       this.root.innerHTML = `
       <style>
         :host {
-          width: ${opts.width}px;
-          height: ${opts.height}px;
+          width: var(--svg-icon-size, ${opts.width}px);
+          height: var(--svg-icon-size, ${opts.height}px);
           display: inline-flex;
           display: -ms-inline-flexbox;
           display: -webkit-inline-flex;
