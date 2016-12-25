@@ -2,6 +2,7 @@
   "name": "svg-icon",
   "description": "Icon element to use with svg-iconset",
   "main": "svg-icon.html",
+  "version": "0.1.0",
   "authors": [
     "Glenn Vandeuren <vandeurenglenn@gmail.com>"
   ],
