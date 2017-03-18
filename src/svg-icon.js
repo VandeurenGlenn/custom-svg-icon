@@ -1,5 +1,5 @@
 'use strict';
-export default class SvgIcon extends HTMLElement {
+export default Backed(class SvgIcon extends HTMLElement {
   /**
    * Attributes to observer
    * @return {Array} ['icon']
@@ -101,5 +101,4 @@ export default class SvgIcon extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     if (oldValue !== newValue) this[name] = newValue;
   }
-}
-customElements.define('svg-icon', SvgIcon);
+});
