@@ -3,7 +3,7 @@
   "description": "Icon element to use with svg-iconset",
   "main": "svg-icon.html",
   "module": "dist/svg-icon-es.js",
-  "version": "0.1.1",
+  "version": "0.3.0",
   "authors": [
     "Glenn Vandeuren <vandeurenglenn@gmail.com>"
   ],
