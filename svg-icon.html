@@ -1,1 +1,24 @@
+<template id="svg-icon">
+  <style>
+    :host {
+      width: var(--svg-icon-size, 24px);
+      height: var(--svg-icon-size, 24px);
+      display: inline-flex;
+      display: -ms-inline-flexbox;
+      display: -webkit-inline-flex;
+      display: inline-flex;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      position: relative;
+      vertical-align: middle;
+      fill: var(--svg-icon-color, #111);
+      stroke: var(--svg-icon-stroke, none);
+    }
+  </style>
+  <slot></slot>
+</template>
 <script src="dist/svg-icon.js"></script>

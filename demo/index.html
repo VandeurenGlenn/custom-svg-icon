@@ -21,15 +21,18 @@
 
     <!-- Web Components -->
     <script src="../bower_components/custom-elements/custom-elements.min.js"></script>
-    <link rel="import" href="../bower_components/svg-iconset/svg-iconset.html">
+    <link rel="import" href="../node_modules/backed/backed.html">
+
+    <link rel="import" href="../node_modules/svg-iconset/svg-iconset.html">
     <link rel="import" href="../svg-icon.html">
   </head>
   <body>
-    <svg-iconset>
-      <svg><defs>
-        <g id="menu"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></g>
-      </defs></svg>
-    </svg-iconset>
     <svg-icon icon="menu"></svg-icon>
-  </body>
+      <svg-iconset>
+        <svg><defs>
+          <g id="menu"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></g>
+        </defs></svg>
+      </svg-iconset>
+  	<script src="/reload/reload.js"></script>
+</body>
 </html>

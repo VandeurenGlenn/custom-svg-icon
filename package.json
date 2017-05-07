@@ -13,6 +13,10 @@
     "icon",
     "svg-icon"
   ],
+  "files": [
+    "dist",
+    "svg-icon.html"
+  ],
   "homepage": "https://github.com/vandeurenglenn/svg-icon#readme",
   "ignore": [
     "**/.*",
@@ -22,10 +26,34 @@
     "tests"
   ],
   "dependencies": {
-    "backed": "^0.1.0",
+    "backed": "^0.3.3",
     "custom-elements": "webcomponents/custom-elements"
   },
   "devDependencies": {
-    "babel-plugin-external-helpers": "^6.22.0"
+    "babel-plugin-external-helpers": "^6.22.0",
+    "svg-iconset": "^0.3.1"
+  },
+  "backed": {
+    "bundles": [
+      {
+        "src": "src/svg-icon.js",
+        "dest": "dist/svg-icon.js",
+        "format": "iife",
+        "moduleName": "SvgIcon",
+        "babel": {
+          "presets": [
+            [
+              "es2015",
+              {
+                "modules": false
+              }
+            ]
+          ],
+          "plugins": [
+            "external-helpers"
+          ]
+        }
+      }
+    ]
   }
 }
