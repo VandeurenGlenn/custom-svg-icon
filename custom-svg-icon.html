@@ -1,6 +1,6 @@
 <link rel="import" href="../backed/backed.html">
 
-<template id="svg-icon">
+<template id="custom-svg-icon">
   <style>
     :host {
       width: var(--svg-icon-size, 24px);
@@ -26,7 +26,7 @@
 
 <script>
 'use strict';
-Backed(class SvgIcon extends HTMLElement {
+Backed(class CustomSvgIcon extends HTMLElement {
 
   /**
    * Attributes to observer
@@ -56,18 +56,19 @@ Backed(class SvgIcon extends HTMLElement {
        */
       icon: {
         observer: '__iconChanged__'
-      },
-
-      /**
-       * Iconset
-       * @return {object} window.svgIconset
-       * [checkout](svg-iconset.html) for more info.
-       */
-      iconset: {
-        value: window.svgIconset
       }
     }
   }
+
+  /**
+   * Iconset
+   * @return {object} window.svgIconset
+   * [checkout](svg-iconset.html) for more info.
+   */
+  get iconset() {
+    return window.svgIconset
+  }
+
   created() {
     this._onIconsetReady = this._onIconsetReady.bind(this)
   }
@@ -78,7 +79,6 @@ Backed(class SvgIcon extends HTMLElement {
 
   _onIconsetReady() {
     window.removeEventListener('svg-iconset-added', this._onIconsetReady);
-    this.iconset = window.svgIconset;
     this.__iconChanged__({value: this.icon})
   }
 
