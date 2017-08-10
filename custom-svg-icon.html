@@ -69,6 +69,10 @@ Backed(class CustomSvgIcon extends HTMLElement {
     return window.svgIconset
   }
 
+  set iconset(value) {
+    window.iconset = value;
+  }
+
   created() {
     this._onIconsetReady = this._onIconsetReady.bind(this)
   }
@@ -79,7 +83,7 @@ Backed(class CustomSvgIcon extends HTMLElement {
 
   _onIconsetReady() {
     window.removeEventListener('svg-iconset-added', this._onIconsetReady);
-    this.__iconChanged__({value: this.icon})
+    this.__iconChanged__({value: this.icon});
   }
 
   __iconChanged__(change) {
@@ -89,12 +93,12 @@ Backed(class CustomSvgIcon extends HTMLElement {
     }
     if (change.value && this.iconset) {
       let parts = change.value.split('::');
-      if (parts.length === 1) {
+      if (parts.length === 1 && this.iconset[parts[0]]) {
         this.iconset['icons'].host.applyIcon(this, change.value);
-      } else {
+      } else if (this.iconset[parts[0]]) {
         this.iconset[parts[0]].host.applyIcon(this, parts[1]);
       }
-    } else if(!change.value && this.iconset) {
+    } else if(!change.value && this.iconset && this._icon) {
       let parts = this._icon.split('::');
       if (parts.length === 1) {
         this.iconset['icons'].host.removeIcon(this);
@@ -103,6 +107,7 @@ Backed(class CustomSvgIcon extends HTMLElement {
       }
     }
     this._icon = change.value;
+    this.iconset = this.iconset;
   }
 
   /**
