@@ -1,7 +1,7 @@
 {
   "name": "custom-svg-icon",
   "description": "Icon element to use with svg-iconset",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "main": "custom-svg-icon.html",
   "authors": [
     "VandeurenGlenn <vandeurenglenn@gmail.com>"
