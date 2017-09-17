@@ -1,0 +1,18 @@
+{
+  "name": "custom-svg-icon",
+  "version": "0.9.0-preview",
+  "main": "custom-svg-icon",
+  "repository": "https://github.com/VandeurenGlenn/custom-svg-icon",
+  "author": "VandeurenGlenn <vandeurenglenn@gmail.com>",
+  "license": "MIT",
+  "backed": {
+    "bundles": [
+      {
+        "src": "src/custom-svg-icon.js",
+        "dest": "custom-svg-icon.js",
+        "moduleName": "customSvgIcon",
+        "format": "iife"
+      }
+    ]
+  }
+}

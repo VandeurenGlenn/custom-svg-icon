@@ -19,18 +19,20 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
 
-    <!-- Web Components -->
-    <link rel="import" href="../../backed/backed.html">
+    <script type="module">
+      import '../src/custom-svg-icon.js';
+      import '../../custom-svg-iconset/src/custom-svg-iconset.js';
+    </script>
 
-    <link rel="import" href="../../svg-iconset/svg-iconset.html">
-    <link rel="import" href="../svg-icon.html">
+    <script src="../../custom-svg-iconset/src/custom-svg-iconset.js" nomodule></script>
+    <script src="../custom-svg-icon.js" nomodule></script>
   </head>
   <body>
     <custom-svg-icon icon="menu"></custom-svg-icon>
-    <svg-iconset>
+    <custom-svg-iconset>
       <svg><defs>
         <g id="menu"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></g>
       </defs></svg>
-    </svg-iconset>
+    </custom-svg-iconset>
 </body>
 </html>
