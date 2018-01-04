@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+- '7'
+- '8'
+- '9'
+cache:
+  yarn: true
+  directories:
+    - 'node_modules'
+    - $(npm config get prefix)/lib/node_modules
+before_script:
+- npm install -g backed-cli
+- backed -b
+deploy:
+  skip_cleanup: true
+  provider: npm
+  email: vandeurenglenn@gmail.com
+  api_key:
+    secure: nrH5keptM7TxlFjm83Qd+lfl7tcKOBNFHO4HhDyPObc9I1iOhs4WEH0ahid9r43/PyFFD1A1jT0j/kFXfXn1Bkbw3CJTVNMXUgUtMJ6jaKu9oqL8f3nF/m0VkKoXreeU7OlHooyxr0K1NzhxTOI6I3LyQKjvNgpz5Ll5p1Fcru1Rvmq1uiSl1lewi7vKi1maO8Sjz4ocTh7v0khBaFvj3Z0ov5chk8Mgl8/jeOz5H7B//YtLFpZGXnhNU085zR6VMSVX4xhJHOaQC9+ypaVsmUWu0IhB8Rf1aRyNJtJshGd4PLkYgtpa1iTyf4bJoMamrYXlRyEzoSR88kIotWFzyzvO127M0156yuVwR44LudxvvK4ecRO8dmmUtgl+TZ2vv6LkPQ5AMeTQpdcywcE2dy/b3A/4N34QQjbAz2u1SqZxOIXyXIKIvXsu9ZxQ7F9XWsntprm31lNpRrnMW5QFfKLIqgqD5I/MlaaLUlYmDrkW49Kn78VKwHC1OpGlzGnlTuxvXzCZ4n8jubA/RhFSOO+wdDxvV0hUMKasKsO4b4DaBaRgUPyXyXql5NOHlAPaZdl3zaxzEjLoZUNUHRq4R7KSN/2BE/15X5KFg2hvnhgohns5/Vez+JEonLBjwaw1agUHgDm67REd6G2YJ/G9D9RzcDQP0KlIWmrVfnIbW4Y=
+  on:
+    tags: true
+    repo: VandeurenGlenn/custom-svg-icon

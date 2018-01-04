@@ -1,6 +1,6 @@
 {
   "name": "custom-svg-icon",
-  "version": "0.9.0-preview",
+  "version": "0.9.0-preview.1",
   "main": "custom-svg-icon",
   "repository": "https://github.com/VandeurenGlenn/custom-svg-icon",
   "author": "VandeurenGlenn <vandeurenglenn@gmail.com>",
@@ -14,5 +14,8 @@
         "format": "iife"
       }
     ]
+  },
+  "dependencies": {
+    "lit-html": "^0.7.1"
   }
 }
