@@ -1,5 +1,3 @@
-import {render as renderer, html} from './../../lit-html/lit-html.js';
-
 export default ((base = HTMLElement) => {
   customElements.define('custom-svg-icon', class CustomSvgIcon extends base {
 
@@ -51,18 +49,8 @@ export default ((base = HTMLElement) => {
       return this._icon;
     }
 
-    constructor() {
-      super();
-      this._onIconsetReady = this._onIconsetReady.bind(this)
-    }
-
-    connectedCallback() {
-      this.icon = this.getAttribute('icon') || null;
-      this.render();
-    }
-
-    render() {
-      renderer(html`
+    get template() {
+      return `
         <style>
           custom-svg-icon {
             width: var(--svg-icon-size, 24px);
@@ -83,7 +71,28 @@ export default ((base = HTMLElement) => {
             stroke: var(--svg-icon-stroke, none);
           }
         </style>
-        `, this);
+      `;
+    }
+
+    constructor() {
+      super();
+      this.attachShadow({mode: 'open'});
+      this._onIconsetReady = this._onIconsetReady.bind(this);
+    }
+
+    /**
+     * Basic render template, can be called from host using super.render() or extended
+     *
+     * @example ```js
+     * const iconTempl = super.template();
+     * ```
+     */
+    render() {
+      this.shadowRoot.innerHTML = this.template;
+    }
+
+    connectedCallback() {
+      this.icon = this.getAttribute('icon') || null;
     }
 
     _onIconsetReady() {
