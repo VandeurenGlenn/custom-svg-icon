@@ -1,6 +1,6 @@
 {
   "name": "custom-svg-icon",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "main": "custom-svg-icon.js",
   "module": "src/custom-svg-icon.js",
   "repository": "https://github.com/VandeurenGlenn/custom-svg-icon",
