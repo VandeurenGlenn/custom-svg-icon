@@ -52,7 +52,7 @@ export default ((base = HTMLElement) => {
     get template() {
       return `
         <style>
-          custom-svg-icon {
+          :host {
             width: var(--svg-icon-size, 24px);
             height: var(--svg-icon-size, 24px);
             display: inline-flex;
@@ -93,7 +93,7 @@ export default ((base = HTMLElement) => {
 
     connectedCallback() {
       this.icon = this.getAttribute('icon') || null;
-      if (!super.render()) this.render();
+      if (!super.render) this.render();
     }
 
     _onIconsetReady() {
