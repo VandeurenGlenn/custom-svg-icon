@@ -93,6 +93,7 @@ export default ((base = HTMLElement) => {
 
     connectedCallback() {
       this.icon = this.getAttribute('icon') || null;
+      if (!super.render()) this.render();
     }
 
     _onIconsetReady() {
